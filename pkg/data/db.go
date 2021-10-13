@@ -11,7 +11,7 @@ import (
 )
 
 func OpenDB(infoLog *log.Logger) (*sql.DB, error) {
-	// In production this would only exist in our env file. Set for ease of reviewer.
+	// In production (or just Dev) this would only exist in our env file. Set for ease of reviewer.
 	err := os.Setenv("POSTGRES_PASSWORD_URLSHORTENER", "LemonHotspotAppleRider2134")
 	if err != nil {
 		return nil, err
