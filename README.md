@@ -38,5 +38,8 @@ $ go run cli/cmd/main.go generate http://www.bbc.co.uk
 - Postgres may not be the best choice of db vs e.g. redis.
 - Wrapping the end json made it harder to test.
 
+### Attribution
+The file `serve.go` file in addition to the ReadJSON helper function are inspired by 'Alex Edwards', granted they are edited/simplified. Otherwise, all work is my own.
+
 <br/>
 William Noble 13th October 2021.
