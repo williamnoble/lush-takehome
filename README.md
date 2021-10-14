@@ -29,7 +29,7 @@ $ curl -i http://localhost:8000/YH-nYjDnR
 ### Run the CLI
 
 ```shell
-$ go run cli/cmd/main.go generate http://www.bbc.co.uk
+$ go run cmd/cli/main.go generate http://www.bbc.co.uk
 ```
 
 ### Limitations & Improvements
