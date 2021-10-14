@@ -8,7 +8,6 @@ Take Home Task for **Lush**. Took approx 5hr.
 2. Apply `up.sql`
 ```shell
 $ docker-compose up -d
-
 ```
 
 ### Run the API
@@ -25,7 +24,6 @@ I use Goland and run the tests from within `handlers_test.go`. Alternatively:
 $ go test ./...
 
 $ curl -i http://localhost:8000/YH-nYjDnR
-
 ```
 
 ### Run the CLI
@@ -40,9 +38,5 @@ $ go run cli/cmd/main.go generate http://www.bbc.co.uk
 - Postgres may not be the best choice of db vs e.g. redis.
 - Wrapping the end json made it harder to test.
 
-### Attribution
-No outside reference for working out how to complete this task. However, the code within `serve.go` is at least in part attributed to AlexEdwards, as are my helpers WriteJSON and ReadJSON functions albeit I've simplified  heavily.
-
-<br/>
 <br/>
 William Noble 13th October 2021.
