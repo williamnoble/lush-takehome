@@ -4,10 +4,11 @@ Take Home Task for **Lush**. Took approx 5hr.
 
 ### Setup
 
+1. Run docker-compose to access Postgres instance.
+2. Apply `up.sql`
 ```shell
 $ docker-compose up -d
 
-### Apply the up.sql 
 ```
 
 ### Run the API
