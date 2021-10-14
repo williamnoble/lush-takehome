@@ -13,7 +13,7 @@ import (
 
 // Create a separate structure to parse the JSON Response Body. This is necessary because we wrapped the original JSON
 // within a map to increase the readability of the structure however now we cannot re-use that structure to decode the response.
-type T struct {
+type WrappedResponse struct {
 	ShortURL struct {
 		Id       int    `json:"id"`
 		LongUrl  string `json:"long_url"`
@@ -44,7 +44,7 @@ func TestApplication_ShortenHandler(t *testing.T) {
 	handler := http.HandlerFunc(app.ShortenHandler)
 	handler.ServeHTTP(rr, req)
 
-	var link T
+	var link WrappedResponse
 	err = json.Unmarshal(rr.Body.Bytes(), &link)
 	if err != nil {
 		log.Println("err: ", err)
@@ -78,9 +78,9 @@ func TestApplication_ShortenHandler(t *testing.T) {
 
 func TestApplication_RedirectHandler(t *testing.T) {
 	// Short:"YH-nYjDnR"
-	// Long:"http://www.amazon.co.uk"
+	// Long:"http://www.google.com"
 
-	want := "http://www.amazon.co.uk"
+	want := "http://www.google.com"
 	req, err := http.NewRequest(http.MethodGet, "http://127.0.0.1:8000/YH-nYjDnR", nil)
 	if err != nil {
 		log.Println("Failed to generate a request for the google test handler")

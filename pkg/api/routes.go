@@ -5,6 +5,7 @@ import (
 	"net/http"
 )
 
+//GetRoutes registers routes which are handled by Mux.
 func (app *Application) GetRoutes() *mux.Router {
 	router := mux.NewRouter()
 	router.HandleFunc("/shorten", app.ShortenHandler).Methods(http.MethodPost)

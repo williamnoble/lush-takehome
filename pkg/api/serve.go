@@ -10,6 +10,7 @@ import (
 	"time"
 )
 
+//Serve is responsible for create an HTTP Server, listening, and promoting a graceful shutdown.
 func (app *Application) Serve() error {
 
 	// Setup a non-default HTTP server

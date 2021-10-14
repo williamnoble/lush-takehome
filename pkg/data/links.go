@@ -31,6 +31,7 @@ type LinkModel struct {
 	DB *sql.DB
 }
 
+// GetLink retrieves a Long URL given a short URL.
 func (l LinkModel) GetLink(url string) (Link, error) {
 	query := `SELECT short_url, long_url FROM links WHERE short_url=$1`
 	var link Link
@@ -48,6 +49,7 @@ func (l LinkModel) GetLink(url string) (Link, error) {
 	return link, nil
 }
 
+// CreateLink saves a Link (with Long & Short URL) to the underlying database.
 func (l LinkModel) CreateLink(link Link) (*Link, error) {
 	query := "INSERT INTO links (short_url, long_url) VALUES ($1, $2) RETURNING (id)"
 	ctx, cancel := context.WithTimeout(context.Background(), 3*time.Second)

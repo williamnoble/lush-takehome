@@ -10,6 +10,8 @@ import (
 	"urlShortener/pkg/data"
 )
 
+//ShortenHandler is a HTTP Handler response for converting a Long URL String to a Short URL Code. The Long and Short URLs
+// are maintained within the database and returned to the user as JSON.
 func (app *Application) ShortenHandler(w http.ResponseWriter, r *http.Request) {
 
 	// Input holds the URL for which we generate a short URL.
@@ -72,6 +74,8 @@ func (app *Application) ShortenHandler(w http.ResponseWriter, r *http.Request) {
 
 }
 
+//RedirectHandler is responsible for looking up the Short URL Code within the database and returning the correct URL. The
+// client is then redirected to the corresponding Long URL.
 func (app *Application) RedirectHandler(w http.ResponseWriter, r *http.Request) {
 	// Retrieve the desired URL from the request Path.
 	v := mux.Vars(r)

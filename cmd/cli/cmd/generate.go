@@ -33,6 +33,8 @@ func init() {
 }
 
 func generateShortURL(u string) {
+
+	// Override default client with timeout
 	client := &http.Client{Timeout: 10 * time.Second}
 
 	input := Input{
@@ -41,7 +43,7 @@ func generateShortURL(u string) {
 
 	js, err := json.Marshal(input)
 	if err != nil {
-		fmt.Println("Could not marshal input")
+		fmt.Println("failed to marshal input ", err)
 		return
 	}
 
@@ -50,13 +52,13 @@ func generateShortURL(u string) {
 
 	resp, err := client.Do(req)
 	if err != nil {
-		fmt.Println("encountered an error when getting request", err)
+		fmt.Println("encountered an error when client performed http request ", err)
 		return
 	}
 
 	body, err := io.ReadAll(resp.Body)
 	if err != nil {
-		fmt.Println("failed to read the response body")
+		fmt.Println("failed to read the response body ", err)
 		return
 	}
 	fmt.Println(string(body))

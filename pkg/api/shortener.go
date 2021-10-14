@@ -6,12 +6,15 @@ import (
 	"urlShortener/pkg/data"
 )
 
+// Application holds the main App Logic with reference to the data store and logging.
 type Application struct {
 	Models   data.Models
 	InfoLog  *log.Logger
 	ErrorLog *log.Logger
 }
 
+// NewApplication is a singleton which returns a single instance of the main Application struct. It is responsible for
+// opening any required db connection.
 func NewApplication() *Application {
 	infoLog := log.New(os.Stdout, "INFO\t", log.Ldate|log.Ltime)
 	errorLog := log.New(os.Stderr, "ERROR\t", log.Ldate|log.Ltime|log.Lshortfile)
@@ -21,7 +24,6 @@ func NewApplication() *Application {
 		log.Fatal("encountered an error when attempting to open the database: ", err)
 	}
 
-	// Enclosed our Link Model within a Separate struct for future expandability (adding Auth token etc).
 	models := data.NewModels(db)
 
 	app := &Application{

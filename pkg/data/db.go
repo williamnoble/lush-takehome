@@ -10,6 +10,7 @@ import (
 	"time"
 )
 
+// OpenDB is response for opening a connection to an underlying SQL DB Pool.
 func OpenDB(infoLog *log.Logger) (*sql.DB, error) {
 	// In production (or just Dev) this would only exist in our env file. Set for ease of reviewer.
 	err := os.Setenv("POSTGRES_PASSWORD_URLSHORTENER", "LemonHotspotAppleRider2134")
