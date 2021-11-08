@@ -1,6 +1,6 @@
 # URL Shortener
 
-Take Home Task for **Lush**. Took approx 5hr.
+Take Home Task for.... Took approx 5hr.
 
 ### Setup
 
